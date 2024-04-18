@@ -401,10 +401,10 @@ packages:
     dependency: "direct main"
     description:
       name: nylo_framework
-      sha256: ad7715568f85d28c7f1bc9358b18348f6a370d1bddd6b4a033161823b7744c7d
+      sha256: b0e4278021d6542507f423d067c6fc71bfb022f132a9955e326a96df10cf165e
       url: "https://pub.dev"
     source: hosted
-    version: "5.25.2"
+    version: "5.25.3"
   nylo_support:
     dependency: transitive
     description:
