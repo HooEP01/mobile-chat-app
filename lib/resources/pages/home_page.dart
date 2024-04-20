@@ -52,101 +52,13 @@ class _HomePageState extends NyState<HomePage> {
         ],
       ),
       body: SafeAreaWidget(
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Logo(),
-              Text(
-                getEnv("APP_NAME"),
-              ).displayMedium(context),
-              const Text("Micro-framework for Flutter", textAlign: TextAlign.center)
-                  .titleMedium(context)
-                  .setColor(context, (color) => color.primaryAccent),
-              const Text(
-                "Build something amazing 💡",
-              ).bodyMedium(context).alignCenter(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  const Divider(),
-                  Container(
-                    height: 250,
-                    width: double.infinity,
-                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    decoration: BoxDecoration(
-                        color: ThemeColor.get(context).surfaceBackground,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 9,
-                            offset: const Offset(0, 3),
-                          ),
-                        ]),
-                    child: Center(
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        children:
-                        ListTile.divideTiles(context: context, tiles: [
-                          MaterialButton(
-                            onPressed: widget.controller.onTapDocumentation,
-                            child: Text(
-                              "documentation".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapGithub,
-                            child: const Text(
-                              "GitHub",
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapChangeLog,
-                            child: Text(
-                              "changelog".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapYouTube,
-                            child: Text(
-                              "YouTube Channel".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                        ]).toList(),
-                      ),
-                    ),
-                  ),
-                  const Text(
-                    "Framework Version: $nyloVersion",
-                  )
-                      .bodyMedium(context)
-                      .setColor(context, (color) => Colors.grey),
-                  if (!context.isDarkMode)
-                    Switch(
-                        value: isThemeDark,
-                        onChanged: (_) {
-                          NyTheme.set(context,
-                              id: getEnv(isThemeDark != true
-                                  ? 'DARK_THEME_ID'
-                                  : 'LIGHT_THEME_ID'));
-                        }),
-                  if (!context.isDarkMode)
-                    Text("${isThemeDark ? "Dark" : "Light"} Mode"),
-                ],
-              ),
-            ],
-          ),
-        ),
+        child: NyListView(child: (context, data) {
+          return Text(data['title']);
+        }, data: () async {
+          return {
+            'title': 'Hello World'.tr(),
+          };
+        })
       ),
     );
   }
