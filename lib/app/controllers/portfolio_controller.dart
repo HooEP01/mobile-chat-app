@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import '/resources/pages/portfolio_page.dart';
 import '/resources/widgets/logo_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'controller.dart';
 
-class HomeController extends Controller {
+class PortfolioController extends Controller {
 
-  onTapPortfolio() {
-    routeTo(PortfolioPage.path);
-  }
-  
   onTapDocumentation() async {
     await launchUrl(Uri.parse("https://nylo.dev/docs"));
   }

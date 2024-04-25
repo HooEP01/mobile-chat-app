@@ -95,6 +95,13 @@ class _HomePageState extends NyState<HomePage> {
                         children:
                         ListTile.divideTiles(context: context, tiles: [
                           MaterialButton(
+                            onPressed: widget.controller.onTapPortfolio,
+                            child: Text(
+                              "my portfolio".tr().capitalize(),
+                            ).bodyLarge(context).setColor(
+                                context, (color) => color.surfaceContent),
+                          ),
+                          MaterialButton(
                             onPressed: widget.controller.onTapDocumentation,
                             child: Text(
                               "documentation".tr().capitalize(),
