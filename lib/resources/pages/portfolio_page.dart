@@ -59,8 +59,7 @@ class _PortfolioPageState extends NyState<PortfolioPage> {
       params = const PlatformWebViewControllerCreationParams();
     }
 
-    final WebViewController controller =
-        WebViewController.fromPlatformCreationParams(params);
+    final WebViewController controller = WebViewController.fromPlatformCreationParams(params);
     // #enddocregion platform_features
 
     controller
@@ -110,13 +109,12 @@ Page resource error:
           );
         },
       )
-      ..loadRequest(Uri.parse('https://eptechoo.com '));
+      ..loadRequest(Uri.parse('https://eptechoo.com'));
 
     // #docregion platform_features
     if (controller.platform is AndroidWebViewController) {
       AndroidWebViewController.enableDebugging(true);
-      (controller.platform as AndroidWebViewController)
-          .setMediaPlaybackRequiresUserGesture(false);
+      (controller.platform as AndroidWebViewController).setMediaPlaybackRequiresUserGesture(false);
     }
     // #enddocregion platform_features
 
@@ -142,10 +140,8 @@ Page resource error:
   }
 
   Future<void> openDialog(HttpAuthRequest httpRequest) async {
-    final TextEditingController usernameTextController =
-        TextEditingController();
-    final TextEditingController passwordTextController =
-        TextEditingController();
+    final TextEditingController usernameTextController = TextEditingController();
+    final TextEditingController passwordTextController = TextEditingController();
 
     return showDialog(
       context: context,
@@ -197,7 +193,5 @@ Page resource error:
     );
   }
 
-  bool get isThemeDark =>
-      ThemeProvider.controllerOf(context).currentThemeId ==
-      getEnv('DARK_THEME_ID');
+  bool get isThemeDark => ThemeProvider.controllerOf(context).currentThemeId == getEnv('DARK_THEME_ID');
 }

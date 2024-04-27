@@ -14,7 +14,6 @@ class HomePage extends NyStatefulWidget<HomeController> {
 }
 
 class _HomePageState extends NyState<HomePage> {
-
   /// The boot method is called before the [view] is rendered.
   /// You can override this method to perform any async operations.
   /// Try uncommenting the code below.
@@ -77,57 +76,24 @@ class _HomePageState extends NyState<HomePage> {
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    decoration: BoxDecoration(
-                        color: ThemeColor.get(context).surfaceBackground,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
-                            spreadRadius: 1,
-                            blurRadius: 9,
-                            offset: const Offset(0, 3),
-                          ),
-                        ]),
+                    decoration: BoxDecoration(color: ThemeColor.get(context).surfaceBackground, borderRadius: BorderRadius.circular(8), boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 1,
+                        blurRadius: 9,
+                        offset: const Offset(0, 3),
+                      ),
+                    ]),
                     child: Center(
                       child: ListView(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
-                        children:
-                        ListTile.divideTiles(context: context, tiles: [
+                        children: ListTile.divideTiles(context: context, tiles: [
                           MaterialButton(
                             onPressed: widget.controller.onTapPortfolio,
                             child: Text(
                               "my portfolio".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapDocumentation,
-                            child: Text(
-                              "documentation".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapGithub,
-                            child: const Text(
-                              "GitHub",
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapChangeLog,
-                            child: Text(
-                              "changelog".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
-                          ),
-                          MaterialButton(
-                            onPressed: widget.controller.onTapYouTube,
-                            child: Text(
-                              "YouTube Channel".tr().capitalize(),
-                            ).bodyLarge(context).setColor(
-                                context, (color) => color.surfaceContent),
+                            ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
                           ),
                         ]).toList(),
                       ),
@@ -135,20 +101,14 @@ class _HomePageState extends NyState<HomePage> {
                   ),
                   const Text(
                     "Framework Version: $nyloVersion",
-                  )
-                      .bodyMedium(context)
-                      .setColor(context, (color) => Colors.grey),
+                  ).bodyMedium(context).setColor(context, (color) => Colors.grey),
                   if (!context.isDarkMode)
                     Switch(
                         value: isThemeDark,
                         onChanged: (_) {
-                          NyTheme.set(context,
-                              id: getEnv(isThemeDark != true
-                                  ? 'DARK_THEME_ID'
-                                  : 'LIGHT_THEME_ID'));
+                          NyTheme.set(context, id: getEnv(isThemeDark != true ? 'DARK_THEME_ID' : 'LIGHT_THEME_ID'));
                         }),
-                  if (!context.isDarkMode)
-                    Text("${isThemeDark ? "Dark" : "Light"} Mode"),
+                  if (!context.isDarkMode) Text("${isThemeDark ? "Dark" : "Light"} Mode"),
                 ],
               ),
             ],
@@ -158,7 +118,5 @@ class _HomePageState extends NyState<HomePage> {
     );
   }
 
-  bool get isThemeDark =>
-      ThemeProvider.controllerOf(context).currentThemeId ==
-          getEnv('DARK_THEME_ID');
+  bool get isThemeDark => ThemeProvider.controllerOf(context).currentThemeId == getEnv('DARK_THEME_ID');
 }
