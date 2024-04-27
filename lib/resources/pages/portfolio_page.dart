@@ -110,7 +110,7 @@ Page resource error:
           );
         },
       )
-      ..loadRequest(Uri.parse('https://eptechoo.com '));
+      ..loadRequest(Uri.parse('https://eptechoo.com'));
 
     // #docregion platform_features
     if (controller.platform is AndroidWebViewController) {
