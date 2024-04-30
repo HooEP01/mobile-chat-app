@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/resources/pages/chat_page.dart';
 import '/resources/pages/portfolio_page.dart';
 import '/resources/widgets/logo_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -10,22 +11,17 @@ class HomeController extends Controller {
   onTapPortfolio() {
     routeTo(PortfolioPage.path);
   }
-  
-  onTapDocumentation() async {
-    await launchUrl(Uri.parse("https://nylo.dev/docs"));
-  }
 
   onTapGithub() async {
-    await launchUrl(Uri.parse("https://github.com/nylo-core/nylo"));
+    await launchUrl(Uri.parse("https://github.com/HooEP01"));
   }
 
-  onTapChangeLog() async {
-    await launchUrl(Uri.parse(
-        "https://github.com/nylo-core/nylo/releases"));
+  onTapLinkedln() async {
+    await launchUrl(Uri.parse("https://www.linkedin.com/in/hoo-ern-ping-a542b9261/"));
   }
 
-  onTapYouTube() async {
-    await launchUrl(Uri.parse("https://m.youtube.com/@nylo_dev"));
+  onTapChat() {
+    routeTo(ChatPage.path);
   }
 
   showAbout() {

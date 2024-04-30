@@ -56,7 +56,7 @@ class _HomePageState extends NyState<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Logo(),
+              // const Logo(),
               Text(
                 getEnv("APP_NAME"),
               ).displayMedium(context),
@@ -92,16 +92,31 @@ class _HomePageState extends NyState<HomePage> {
                           MaterialButton(
                             onPressed: widget.controller.onTapPortfolio,
                             child: Text(
-                              "my portfolio".tr().capitalize(),
+                              "Portfolio".tr().capitalize(),
+                            ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
+                          ),
+                          MaterialButton(
+                            onPressed: widget.controller.onTapGithub,
+                            child: Text(
+                              "Github".tr().capitalize(),
+                            ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
+                          ),
+                          MaterialButton(
+                            onPressed: widget.controller.onTapLinkedln,
+                            child: Text(
+                              "Linkedln".tr().capitalize(),
+                            ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
+                          ),
+                          MaterialButton(
+                            onPressed: widget.controller.onTapChat,
+                            child: Text(
+                              "Chat to Me".tr().capitalize(),
                             ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
                           ),
                         ]).toList(),
                       ),
                     ),
                   ),
-                  const Text(
-                    "Framework Version: $nyloVersion",
-                  ).bodyMedium(context).setColor(context, (color) => Colors.grey),
                   if (!context.isDarkMode)
                     Switch(
                         value: isThemeDark,
