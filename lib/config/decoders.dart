@@ -1,3 +1,4 @@
+import '/app/controllers/auth_controller.dart';
 import 'package:flutter_app/app/controllers/chat_controller.dart';
 import 'package:flutter_app/app/controllers/portfolio_controller.dart';
 
@@ -49,5 +50,7 @@ final Map<Type, dynamic> controllers = {
 
   // ...
 
+
+  AuthController: () => AuthController(),
 };
 
