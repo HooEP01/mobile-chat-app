@@ -2,7 +2,6 @@ import 'package:nylo_framework/nylo_framework.dart';
 import 'package:nylo_framework/theme/helper/ny_theme.dart';
 import 'package:flutter/material.dart';
 import '/bootstrap/extensions.dart';
-import '/resources/widgets/logo_widget.dart';
 import '/resources/widgets/safearea_widget.dart';
 import '/bootstrap/helpers.dart';
 import '/app/controllers/home_controller.dart';
@@ -64,7 +63,7 @@ class _HomePageState extends NyState<HomePage> {
                   .titleMedium(context)
                   .setColor(context, (color) => color.primaryAccent),
               const Text(
-                "Build something amazing 💡",
+                "Build Authentication, Web View, and Chat in Nylo.",
               ).bodyMedium(context).alignCenter(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,30 +88,39 @@ class _HomePageState extends NyState<HomePage> {
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
                         children: ListTile.divideTiles(context: context, tiles: [
+
+                          /// Portfolio
                           MaterialButton(
                             onPressed: widget.controller.onTapPortfolio,
                             child: Text(
                               "Portfolio".tr().capitalize(),
                             ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
                           ),
+
+                          /// Github
                           MaterialButton(
                             onPressed: widget.controller.onTapGithub,
                             child: Text(
                               "Github".tr().capitalize(),
                             ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
                           ),
+
+                          /// Linkedln
                           MaterialButton(
                             onPressed: widget.controller.onTapLinkedln,
                             child: Text(
                               "Linkedln".tr().capitalize(),
                             ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
                           ),
+
+                          /// Chat to Me
                           MaterialButton(
                             onPressed: widget.controller.onTapChat,
                             child: Text(
                               "Chat to Me".tr().capitalize(),
                             ).bodyLarge(context).setColor(context, (color) => color.surfaceContent),
                           ),
+
                         ]).toList(),
                       ),
                     ),
