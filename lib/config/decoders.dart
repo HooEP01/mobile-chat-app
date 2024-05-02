@@ -1,3 +1,5 @@
+import '/app/controllers/auth_controller.dart';
+import 'package:flutter_app/app/controllers/chat_controller.dart';
 import 'package:flutter_app/app/controllers/portfolio_controller.dart';
 
 import '/app/controllers/home_controller.dart';
@@ -44,8 +46,11 @@ final Map<Type, dynamic> apiDecoders = {
 final Map<Type, dynamic> controllers = {
   HomeController: () => HomeController(),
   PortfolioController: () => PortfolioController(),
+  ChatController: () => ChatController(),
 
   // ...
 
+
+  AuthController: () => AuthController(),
 };
 
