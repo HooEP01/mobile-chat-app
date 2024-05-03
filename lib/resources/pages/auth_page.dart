@@ -40,7 +40,7 @@ class _AuthPageState extends NyState<AuthPage> {
                         ),
                         onPressed: () async {
                           userCredential.value = await widget.controller.signInWithGoogle();
-                          if (userCredential.value != null) print(userCredential.value.user!.email);
+                          if (userCredential.value != null) print(userCredential.value);
                         },
                       ),
                     ),
