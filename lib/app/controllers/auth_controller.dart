@@ -1,9 +1,13 @@
-import 'package:google_sign_in/google_sign_in.dart';
+import 'dart:io';
+
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '/app/controllers/controller.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends Controller {
   @override
@@ -13,25 +17,17 @@ class AuthController extends Controller {
 
   Future<dynamic> signInWithGoogle() async {
     try {
+      await InternetAddress.lookup('google.com');
 
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      print("This is the user crendential");
-
-
       final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-      print("This is the user authentication");
-
 
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-      print("This is the user google auth provider");
-
 
       final UserCredential? userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
-
-      print(userCredential);
       if (userCredential is UserCredential) {
         await login(userCredential.user);
         return true;
