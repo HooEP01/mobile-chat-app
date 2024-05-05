@@ -30,7 +30,7 @@ class AuthController extends Controller {
       final UserCredential? userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
       if (userCredential is UserCredential) {
         await login(userCredential.user);
-        return true;
+        return userCredential;
       }
     } on Exception catch (e) {
       print('exception->$e');
